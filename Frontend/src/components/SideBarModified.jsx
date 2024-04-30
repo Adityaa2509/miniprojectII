@@ -34,6 +34,7 @@ function SideBarModified() {
                 active={query === 'analytics' || !query }
                 icon={HiChartPie}
                 as='div'
+                className='mb-2'
               >
                 Dashboard
               </Sidebar.Item>
@@ -44,7 +45,9 @@ function SideBarModified() {
                 <Sidebar.Item active={query === 'profile'} 
                 icon={HiUser} 
                 label = {curruser.isAdmin?'Admin':'User'}
+                 className='mb-2'
                  labelColor='dark'>
+                 
                 Profile
                 </Sidebar.Item>
                 </Link>
@@ -52,6 +55,7 @@ function SideBarModified() {
                 <Link to={'/dashboard?tab=posts'}>
                     <Sidebar.Item active={query === 'posts'} 
                 icon={HiDocumentText} 
+                className='mb-2'
               as='div'>
                 Posts
                 </Sidebar.Item>
@@ -61,8 +65,19 @@ function SideBarModified() {
                   active={query === 'comments'}
                   icon={HiAnnotation}
                   as='div'
+                  className='mb-2'
                 >
                   Comments
+                </Sidebar.Item>
+              </Link>
+              <Link to='/dashboard?tab=users'>
+                <Sidebar.Item
+                  active={query === 'users'}
+                  icon={HiOutlineUserGroup}
+                  as='div'
+                  className='mb-2'
+                >
+                  Users
                 </Sidebar.Item>
               </Link>
 </>

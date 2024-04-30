@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 function Home() {
     const [posts, setPosts] = useState([]);
     const currentUser = useSelector(state => state.user);
-
+console.log(currentUser)
     useEffect(() => {
         const fetchPosts = async () => {
             const res = await fetch('/api/post/myPosts?limit=3');
@@ -32,12 +32,21 @@ function Home() {
                 <p className='text-gray-400 text-lg '>
                     Explore a world of innovation and creativity in technology. From web development to machine learning, Tech Bytes is your go-to destination for insightful articles, tutorials, and updates in the world of tech and coding.
                 </p>
-                <Link
-                    to='/search'
-                    className='text-md  text-green-500 font-bold hover:underline'
-                >
-                    View all posts...
-                </Link>
+                 {currentUser.currentUser ? (
+                    <Link
+                        to='/search'
+                        className='text-md  text-green-500 font-bold hover:underline'
+                    >
+                        View all posts...
+                    </Link>
+                ) : (
+                    <Link
+                        to='/signin'
+                        className='text-md  text-green-500 font-bold hover:underline'
+                    >
+                        Sign in to view all posts...
+                    </Link>
+                )}
             </div>
 
             <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7'>
@@ -49,13 +58,21 @@ function Home() {
                                 <Posts key={post._id} post={post} />
                             ))}
                         </div>
-                        <Link
-                            to={'/search'}
-                            className='text-xl font-bold text-green-500 hover:underline text-center'
-                        >
-                            View all posts...
-                        </Link>
-                    </div>
+                   {currentUser.currentUser ? (
+                    <Link
+                        to='/search'
+                        className='text-md  text-green-500 font-bold hover:underline'
+                    >
+                        View all posts...
+                    </Link>
+                ) : (
+                    <Link
+                        to='/signin'
+                        className='text-md  text-green-500 font-bold hover:underline'
+                    >
+                        Sign in to view all posts...
+                    </Link>
+                )}  </div>
                 )}
             </div>
         </div>

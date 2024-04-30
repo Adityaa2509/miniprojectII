@@ -74,7 +74,6 @@ export default function Users() {
               <Table.HeadCell>Username</Table.HeadCell>
               <Table.HeadCell>Email</Table.HeadCell>
               <Table.HeadCell>Admin</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
             </Table.Head>
             {users.map((user) => (
               <Table.Body className='divide-y' key={user._id}>
@@ -97,17 +96,6 @@ export default function Users() {
                     ) : (
                       <FaTimes className='text-red-500' />
                     )}
-                  </Table.Cell>
-                  <Table.Cell>
-                    <span
-                      onClick={() => {
-                        setShowModal(true);
-                        setUserIdToDelete(user._id);
-                      }}
-                      className='font-medium text-red-500 hover:underline cursor-pointer'
-                    >
-                      Delete
-                    </span>
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>
