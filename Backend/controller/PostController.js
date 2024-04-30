@@ -128,7 +128,6 @@ const likePost = async (req, res) => {
       return res.status(404).json({ message: 'Post not found', success: false });
     }
 
-    // Remove null values from the likes array if present
     post.likes = post.likes.filter(userId => userId); // Remove null values
 
     const userId = req.user.id;
