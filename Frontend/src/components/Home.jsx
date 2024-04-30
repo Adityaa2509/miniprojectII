@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 function Home() {
     const [posts, setPosts] = useState([]);
-    const currentUser = useSelector(state => state.user.currentUser.userdata);
+    const currentUser = useSelector(state => state.user);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -13,8 +13,7 @@ function Home() {
             const data = await res.json();
             let filteredPosts = data.posts;
 
-            const isAdmin = currentUser && currentUser.isAdmin;
-
+            const isAdmin = currentUser && currentUser.currentUser && currentUser.currentUser.userdata && currentUser.currentUser.userdata.isAdmin;
 
             if (!isAdmin) {
                 filteredPosts = filteredPosts.filter(post => post.isPublic);

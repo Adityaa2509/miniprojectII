@@ -43,7 +43,7 @@ function SignUp() {
     <div className='min-h-screen '>
       <div className='flex flex-col gap-2  items-center '>
           <div className='text-4xl font-bold mb-4 mt-10'>
-            REGSITER
+            REGISTER
           </div>
           <form className='flex flex-col gap-5 justify-center items-center'>
             
